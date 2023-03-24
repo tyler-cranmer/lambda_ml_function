@@ -1,0 +1,44 @@
+# More information about the configuration file can be found here:
+# https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-config.html
+version = 0.1
+
+[default]
+[default.global]
+[default.global.parameters]
+stack_name = "task-esemble-app"
+
+[default.build]
+[default.build.parameters]
+parallel = true
+
+[default.validate]
+[default.validate.parameters]
+lint = true
+
+[default.deploy]
+[default.deploy.parameters]
+capabilities = "CAPABILITY_IAM"
+confirm_changeset = true
+resolve_s3 = true
+resolve_image_repos = true
+stack_name = "test1"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-h0qu0es7e9v1"
+s3_prefix = "test1"
+region = "us-west-1"
+image_repositories = ["TaskFunction=846047553787.dkr.ecr.us-west-1.amazonaws.com/test15a105e8b/taskfunction7f1becfbrepo"]
+
+[default.package]
+[default.package.parameters]
+resolve_s3 = true
+
+[default.sync]
+[default.sync.parameters]
+watch = true
+
+[default.local_start_api]
+[default.local_start_api.parameters]
+warm_containers = "EAGER"
+
+[default.local_start_lambda]
+[default.local_start_lambda.parameters]
+warm_containers = "EAGER"
