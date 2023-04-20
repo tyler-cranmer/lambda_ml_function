@@ -5,14 +5,13 @@ import numpy as np
 
 from joblib import load
 
-from preprocess import clean_text, generate_features
+from preprocess import clean_text, generate_features, generate_complexity_features
 
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.pipeline import make_pipeline
-
-import xgboost as xgb
-
+from sklearn.linear_model import LinearRegression
+from sklearn.ensemble import RandomForestRegressor
 
 # Action ML model
 current_directory = os.getcwd()
@@ -43,10 +42,9 @@ def lambda_handler(event, content):
 
     action = action_model.predict([text])
     clarification = clarify_model.predict([text])
-    complexity = complexity_model.predict([text])
-
-    prediction = model.predict(xgb.DMatrix(
-        generate_features(complexity[0], action[0], clarification[0])))
+    complexity = complexity_model.predict(generate_complexity_features(action[0], clarification[0]))
+    prediction = time_model.predict(generate_features(
+        complexity[0], action[0], clarification[0]))
 
     res_body = {}
     res_body['complexity'] = complexity[0]

@@ -21,11 +21,12 @@ capabilities = "CAPABILITY_IAM"
 confirm_changeset = true
 resolve_s3 = true
 resolve_image_repos = true
-stack_name = "test1"
-s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-h0qu0es7e9v1"
-s3_prefix = "test1"
-region = "us-west-1"
-image_repositories = ["TaskFunction=846047553787.dkr.ecr.us-west-1.amazonaws.com/test15a105e8b/taskfunction7f1becfbrepo"]
+stack_name = "task-ensemble-app"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-n6bjkb9ru3x9"
+s3_prefix = "task-ensemble-app"
+region = "us-east-1"
+profile = "moreseconds"
+image_repositories = ["TaskFunction=950711849260.dkr.ecr.us-east-1.amazonaws.com/taskensembleappd36b7729/taskfunction7f1becfbrepo"]
 
 [default.package]
 [default.package.parameters]
