@@ -1,5 +1,5 @@
 {
   "queryStringParameters": {
-    "request": "Submit an Item functionality.  After a user submits the submit an item form, send an email to the admin with a link to that drafted auction item."
+    "request": "Build Homepage Auction Card. Build the Homepage Auction card display "
   }
 }

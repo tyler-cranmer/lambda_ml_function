@@ -2,7 +2,6 @@ import json
 import os
 
 import numpy as np
-
 from joblib import load
 
 from preprocess import clean_text, generate_features, generate_complexity_features
@@ -15,11 +14,11 @@ from sklearn.ensemble import RandomForestRegressor
 
 # Action ML model
 current_directory = os.getcwd()
-action_model_file = current_directory + '/models/action_estimator_0418.joblib'
+action_model_file = current_directory + '/models/action_estimator_0517.joblib'
 action_model = load(action_model_file)
 
 # Clarifiation ML model
-clarify_model_file = current_directory + '/models/clarification_estimator_0418.joblib'
+clarify_model_file = current_directory + '/models/clarification_estimator_0517.joblib'
 clarify_model = load(clarify_model_file)
 
 # Complexity ML model
@@ -36,6 +35,7 @@ def lambda_handler(event, content):
     # get query string param inputs
     client_request = event['queryStringParameters']['request']
 
+    
     print(f"Client Request: {client_request}")
 
     text = clean_text(client_request)
