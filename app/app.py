@@ -1,56 +1,33 @@
 import json
 import os
-
-import numpy as np
 from joblib import load
+from preprocess import Models
 
-from preprocess import clean_text, generate_features, generate_complexity_features
 
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.pipeline import make_pipeline
-from sklearn.linear_model import LinearRegression
-from sklearn.ensemble import RandomForestRegressor
-
-# Action ML model
+# Complexity Model
 current_directory = os.getcwd()
-action_model_file = current_directory + '/models/action_estimator_0517.joblib'
-action_model = load(action_model_file)
-
-# Clarifiation ML model
-clarify_model_file = current_directory + '/models/clarification_estimator_0517.joblib'
-clarify_model = load(clarify_model_file)
-
-# Complexity ML model
-complexity_model_file = current_directory + \
-    '/models/complexity_estimator_0418.joblib'
+complexity_model_file = current_directory + '/models/complexity_06_07.joblib'
 complexity_model = load(complexity_model_file)
 
-# Time ML model
-time_model_file = current_directory + '/models/time_estimator_0418.joblib'
-time_model = load(time_model_file)
-
+# Time Estimation Model
+time_model_file = current_directory + '/models/time_est_06_07.joblib'
+time_model = load(time_model_file )
 
 def lambda_handler(event, content):
     # get query string param inputs
-    client_request = event['queryStringParameters']['request']
+    dev_type = event['queryStringParameters']['dev_type']
+    dev_cat = event['queryStringParameters']['dev_category']
 
     
-    print(f"Client Request: {client_request}")
+    print(f'Dev Type: {dev_type}\nDev Category: {dev_cat}')
 
-    text = clean_text(client_request)
-
-    action = action_model.predict([text])
-    clarification = clarify_model.predict([text])
-    complexity = complexity_model.predict(generate_complexity_features(action[0], clarification[0]))
-    prediction = time_model.predict(generate_features(
-        complexity[0], action[0], clarification[0]))
+    classification = Models(complexity_model=complexity_model, time_model=time_model)
+    complexity = classification.complexity_predict(dev_type=dev_type,dev_category=dev_cat)
+    time_est = classification.time_predict(dev_type=dev_type,dev_category=dev_cat, complexity=complexity)
 
     res_body = {}
-    res_body['complexity'] = complexity[0]
-    res_body['action'] = action[0]
-    res_body['clarification'] = clarification[0]
-    res_body['predicted_time'] = round(np.expm1(prediction[0]))
+    res_body['complexity'] = complexity
+    res_body['predicted_time'] = round(time_est)
 
     http_res = {}
     http_res['isBase64Encoded'] = 'false'
