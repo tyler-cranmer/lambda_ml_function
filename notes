@@ -1,3 +1,4 @@
+# OLD SAMCONFIG.TOML File This was used right before the new classification system. 
 # More information about the configuration file can be found here:
 # https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-config.html
 version = 0.1
@@ -5,7 +6,7 @@ version = 0.1
 [default]
 [default.global]
 [default.global.parameters]
-stack_name = "task-esemble-app-v2"
+stack_name = "task-esemble-app"
 
 [default.build]
 [default.build.parameters]
@@ -20,8 +21,8 @@ lint = true
 capabilities = "CAPABILITY_IAM"
 confirm_changeset = true
 resolve_s3 = true
-stack_name = "task-ensemble-app-v2"
-s3_prefix = "task-ensemble-app-v2"
+stack_name = "task-ensemble-app"
+s3_prefix = "task-ensemble-app"
 region = "us-east-1"
 profile = "moreseconds"
 image_repositories = ["TaskFunction=950711849260.dkr.ecr.us-east-1.amazonaws.com/taskensembleappd36b7729/taskfunction7f1becfbrepo"]

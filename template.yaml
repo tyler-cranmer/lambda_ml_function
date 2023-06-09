@@ -17,7 +17,7 @@ Resources:
         Task:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
-            Path: /task_estimate
+            Path: /task_estimate_v2
             Method: get
     Metadata:
       Dockerfile: Dockerfile
@@ -30,7 +30,7 @@ Outputs:
   # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
   TaskApi:
     Description: "API Gateway endpoint URL for Prod stage for Task function"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/task_estimate/"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/task_estimate_v2/"
   TaskFunction:
     Description: "Task Lambda Function ARN"
     Value: !GetAtt TaskFunction.Arn
