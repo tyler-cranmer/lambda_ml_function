@@ -3,41 +3,32 @@
 version = 0.1
 
 [default]
-[default.global]
 [default.global.parameters]
-stack_name = "task-esemble-app-v2"
+stack_name = "task-ensemble-app-v2"
 
-[default.build]
 [default.build.parameters]
 parallel = true
 
-[default.validate]
 [default.validate.parameters]
 lint = true
 
-[default.deploy]
 [default.deploy.parameters]
 capabilities = "CAPABILITY_IAM"
 confirm_changeset = true
 resolve_s3 = true
-stack_name = "task-ensemble-app-v2"
+resolve_image_repos = true
 s3_prefix = "task-ensemble-app-v2"
-region = "us-east-1"
+region = "us-east-2"
 profile = "moreseconds"
-image_repositories = ["TaskFunction=950711849260.dkr.ecr.us-east-1.amazonaws.com/taskensembleappd36b7729/taskfunction7f1becfbrepo"]
 
-[default.package]
 [default.package.parameters]
 resolve_s3 = true
 
-[default.sync]
 [default.sync.parameters]
 watch = true
 
-[default.local_start_api]
 [default.local_start_api.parameters]
 warm_containers = "EAGER"
 
-[default.local_start_lambda]
 [default.local_start_lambda.parameters]
 warm_containers = "EAGER"
