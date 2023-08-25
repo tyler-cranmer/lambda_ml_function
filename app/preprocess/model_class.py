@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from sklearn.ensemble import RandomForestRegressor
+
 class Models:
     """This Class is for using the complexity and time estimation model 
     """
@@ -134,7 +134,7 @@ class Models:
         return x_scaled
 
     
-    def time_predict(self, dev_type: str, dev_category: str, complexity: str) -> float:
+    def time_predict(self, dev_type: str, dev_category: str, complexity: float) -> float:
         """time estimation function that estimated the task time to completion.
 
         Args:

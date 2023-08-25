@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 
 
-def generate_features(complexity: str, action: str, clarification: str):
+def generate_features(complexity: float, action: str, clarification: str):
 
     actions = ['add new', 'remove', 'troubleshoot', 'update']
     clarifications = ['content', 'feature', 'maintenance', 'other', 'page']

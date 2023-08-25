@@ -17,6 +17,7 @@ Task Enable App is an AWS Lambda function designed to predict the Action, Clarif
 - AWS Lambda
 - AWS API Gateway (optional, if you want to invoke the function using an API)
 - SAM CLI
+- DOCKER
 
 ## Dependencies
 
