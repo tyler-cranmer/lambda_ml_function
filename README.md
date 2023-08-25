@@ -1,14 +1,13 @@
 # task-ensemble-app
 
-Task Enable App is an AWS Lambda function designed to predict the Action, Clarification, and Complexity of a developer task based on the input text data. It uses three NLP classification models to generate these predictions, which are then fed to a regression model to estimate the time for completion
+Task Ensemble App is an AWS Lambda function designed to predict the complexity of a task and then its fed into a regression model to estimate the time for completion.
 
 ## Features
 
 - Takes developer task text data as input
-- Uses three NLP classification models to predict:
-  - Action: The type of action required to perform the task
-  - Clarification: The level of clarity of the task description
+- Uses 2 ML models to predict:
   - Complexity: The complexity level of the task
+  - Predicted Time for Task: The amount of time a task should take to complete.
 - Feeds the predicted classifications to a regression model to estimate the time for completion
 
 ## Requirements
