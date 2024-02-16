@@ -37,7 +37,7 @@ def lambda_handler(event, content):
     http_res["isBase64Encoded"] = "false"
     http_res["statusCode"] = 200
     http_res["headers"] = {
-        "Access-Control-Allow-Origin": "https://dash.moreseconds.com/",
+        "Access-Control-Allow-Origin": "website here",
         "Access-Control-Allow-Methods": "GET",
         "Access-Control-Allow-Headers": "Content-Type",
     }

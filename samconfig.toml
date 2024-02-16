@@ -19,7 +19,7 @@ resolve_s3 = true
 resolve_image_repos = true
 s3_prefix = "task-ensemble-app-v2"
 region = "us-east-2"
-profile = "moreseconds"
+profile = "temp"
 
 [default.package.parameters]
 resolve_s3 = true
