@@ -4,7 +4,7 @@ version = 0.1
 
 [default]
 [default.global.parameters]
-stack_name = "task-ensemble-app-v2"
+stack_name = "stack name"
 
 [default.build.parameters]
 parallel = true
@@ -17,7 +17,7 @@ capabilities = "CAPABILITY_IAM"
 confirm_changeset = true
 resolve_s3 = true
 resolve_image_repos = true
-s3_prefix = "task-ensemble-app-v2"
+s3_prefix = "stack name"
 region = "us-east-2"
 profile = "temp"
 
